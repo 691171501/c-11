@@ -1,2 +1,5 @@
 ﻿  MemoryFile.cpp
+e:\git_my_project\c-11\memoryfile\memoryfile\memoryfile.cpp(226): warning C4101: “error_code”: 未引用的局部变量
+e:\git_my_project\c-11\memoryfile\memoryfile\memoryfile.cpp(269): warning C4101: “error_code”: 未引用的局部变量
+e:\git_my_project\c-11\memoryfile\memoryfile\memoryfile.cpp(398): warning C4244: “=”: 从“__int64”转换到“DWORD”，可能丢失数据
   MemoryFile.vcxproj -> E:\git_my_project\c-11\MemoryFile\Debug\MemoryFile.exe

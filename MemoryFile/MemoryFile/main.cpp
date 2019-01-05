@@ -13,7 +13,7 @@ struct SData
 };
 
 vector<MarketDataFile> vecdata;
-void InitData(long count =102400)
+void InitData(long count =100)
 {
 	std::cout << "max_size: " << vecdata.max_size() << std::endl;
 	vecdata.reserve(count);
@@ -27,23 +27,23 @@ void InitData(long count =102400)
 		strncpy(data.ExchangeInstID, "DCE", sizeof(data.ExchangeInstID));
 		strncpy(data.UpdateTime, "14:12:12", sizeof(data.UpdateTime));
 		strncpy(data.ActionDay, "20190108", sizeof(data.ActionDay));
-		data.LastPrice = 3303;
-		data.PreSettlementPrice = 3304;
-		data.PreClosePrice = 3304;
-		data.PreOpenInterest = 3304;
-		data.OpenPrice = 3304;
-		data.HighestPrice = 3304;
-		data.LowestPrice = 3304;
-		data.Volume = 3304;
-		data.Turnover = 3304;
-		data.OpenInterest = 3304;
-		data.ClosePrice = 3304;
-		data.SettlementPrice = 3304;
-		data.UpperLimitPrice = 3304;
-		data.LowerLimitPrice = 3304;
-		data.PreDelta = 3304;
-		data.CurrDelta = 3304;
-		data.UpdateMillisec = 3304000;
+		data.LastPrice =  n * 100;
+		data.PreSettlementPrice = n * 100;
+		data.PreClosePrice = n * 100;
+		data.PreOpenInterest = n * 100;
+		data.OpenPrice = n * 100;
+		data.HighestPrice = n * 100;
+		data.LowestPrice = n * 100;
+		data.Volume = n * 100;
+		data.Turnover = n * 100;
+		data.OpenInterest = n * 100;
+		data.ClosePrice = n * 100;
+		data.SettlementPrice = n * 100;
+		data.UpperLimitPrice = n * 100;
+		data.LowerLimitPrice = n * 100;
+		data.PreDelta = n * 100;
+		data.CurrDelta = n * 100;
+		data.UpdateMillisec = n * 100;
 		vecdata.emplace_back(data);
 	}
 }
@@ -54,13 +54,17 @@ int main()
 {
 	InitData();
 	//MemoryFile file("E:/git_my_project/c-11/Debug/data", "Global/share_001");
-	MemoryFile file("data", "Global/share_001");
+	MemoryFile file("data", "Global\share_001");
 	for (size_t i = 0; i < 1; i++)
 	{
-		file.saveData(vecdata, MEM_APPEND);
+		//file.saveData(vecdata, MEM_APPEND);
 		file.readData();
 	}
+
+	int n = 100 >> 32;
+
 	getchar();
 	return 0;
 }
 
+\
