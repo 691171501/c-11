@@ -1,6 +1,7 @@
 
 #include"MemoryFile.h"
 #include<iostream>
+#include<Windows.h>
 using namespace std;
 
 //https://blog.csdn.net/tiankefeng19850520/article/details/18838991
@@ -13,7 +14,7 @@ struct SData
 };
 
 vector<MarketDataFile> vecdata;
-void InitData(long count =100)
+void InitData(long count =102400)
 {
 	std::cout << "max_size: " << vecdata.max_size() << std::endl;
 	vecdata.reserve(count);
@@ -55,16 +56,26 @@ int main()
 	InitData();
 	//MemoryFile file("E:/git_my_project/c-11/Debug/data", "Global/share_001");
 	MemoryFile file("data", "Global\share_001");
-	for (size_t i = 0; i < 1; i++)
+	for (size_t i = 0; i < 20; i++)
 	{
-		//file.saveData(vecdata, MEM_APPEND);
-		file.readData();
+		file.saveData(vecdata);
+		//file.readData();
+	//	PBYTE buffer = nullptr;
+	//	buffer = (PBYTE)malloc(vecdata.size() * sizeof(MarketDataFile));
+	////	memset(buffer, 0x00, vecdata.size() * sizeof(MarketDataFile));
+	//	_int64 size_t = vecdata.size() * sizeof(MarketDataFile);
+	//	memcpy(buffer, (PBYTE)(vecdata.data()), vecdata.size() * sizeof(MarketDataFile));
+	//	if(vecdata.size() * sizeof(MarketDataFile) > 117047296)
+	//	memmove(buffer, buffer + 117047296, 117047296);
+	//	free(buffer);
+	//	buffer = nullptr;
 	}
 
-	int n = 100 >> 32;
+	__int64 n = ((__int64)1<<32);
 
+	__int64 data = (__int64)1024 * (__int64)1024 * (__int64)1024 * (__int64)4;
+	std::cout << "test is over" << std::endl;
 	getchar();
 	return 0;
 }
 
-\
